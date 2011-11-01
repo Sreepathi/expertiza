@@ -38,14 +38,16 @@ class ScoreCache < ActiveRecord::Base
       @ass_id = @assignment1.id
       
       
-    end 
-    @questions = Hash.new    
+    end
+
+    @questions = Hash.new
     questionnaires = @assignment1.questionnaires
     questionnaires.each{
       |questionnaire|
       @questions[questionnaire.symbol] = questionnaire.questions
-    } 
-    # scores that participant1 has given
+    }
+
+    #scores that participant1 has given
     if(@map_type == "TeamReviewResponseMap")
       team = Team.find(@contributor_id)
       @allscores = team.get_scores( @questions)
@@ -80,7 +82,7 @@ class ScoreCache < ActiveRecord::Base
       sc.save
       # make another new tuple for new score
     else
-      
+
       range_string = ((@p_min*100).round/100.0).to_s + "-" + ((@p_max*100).round/100.0).to_s
       
       sc.range =    range_string
