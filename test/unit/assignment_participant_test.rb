@@ -4,7 +4,8 @@ require 'assignment_participant'
 
 class AssignmentParticipantTest < ActiveSupport::TestCase
   fixtures :assignments, :users, :roles, :participants
-  
+
+
   def test_import
     row = Array.new
     row[0] = "student1"

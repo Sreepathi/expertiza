@@ -15,4 +15,7 @@ class ResponseMapTest < ActiveSupport::TestCase
     assert_equal responses,@participant.get_feedback
     
   end
+
+
+
 end
